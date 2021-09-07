@@ -12,7 +12,7 @@ Follow-up questions:
 2. Parallelization across multiple cores in the same machine: small dataset in-memory sort (`sort_chunks` method in `ExternalSortOperator` class) can be parallized across multiple cores
 3. Parallelization across multiple disks in the same machine: read large file into multiple small dataset in memory (`read_n_int` method in `ExternalSortOperator` class) can be parallized across multiple disks
 4. Parallelization across multiple machines: aggegation to the final result (`heap_sort` method in `ExternalSortOperator` class) can be parallized across multiple machines by using pre-aggregation
-5. Choose M for different N, cores, disks, and machines: dynamically to reduce the total time T = T(sort_chunks) + T(merge_k) + T(i/o)
+5. Choose M for different N, cores, disks, and machines: dynamically to reduce the total time T = T(sort_chunks) + T(merge_k) + T(i/o). One workable solution is, take advantage of replacement selection sort algorithm, to decrease K (which is M/N), to decrease T(i/o).
 
 
 
